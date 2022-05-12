@@ -1,0 +1,3 @@
+apps/api/src/core/database/migrations/**
+core/database/migrations
+core/database/migrations

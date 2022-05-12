@@ -1,0 +1,29 @@
+{
+  "name": "unify-fastify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flexper/unify-fastify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flexper/unify-fastify/issues"
+  },
+  "homepage": "https://github.com/flexper/unify-fastify#readme",
+  "dependencies": {
+    "fastify": "^3.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.32",
+    "typescript": "^4.6.4"
+  }
+}
