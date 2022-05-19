@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js",
+    "dev": "nodemon start",
+    "start": "tsc -p tsconfig.json && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/flexper/unify-fastify#readme",
   "dependencies": {
-    "fastify": "^3.29.0"
+    "fastify": "^3.29.0",
+    "unify-errors": "^1.0.20"
   },
   "devDependencies": {
     "@types/node": "^17.0.32",
