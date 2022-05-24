@@ -5,6 +5,8 @@ const errorHandler = (error: FastifyError, request: FastifyRequest, reply: Fasti
   if(error instanceof CustomError) {
     let httpCode: number=0, message: any = {}
 
+    console.log('DEBUG', typeof error )
+
     switch(error) {
       case BadRequest(): {
         httpCode=400
@@ -41,14 +43,19 @@ const errorHandler = (error: FastifyError, request: FastifyRequest, reply: Fasti
         message={msg: "That's not implemented"}
         break;
       }
+      default: {
+        httpCode=500
+        message={msg: "Custom error not handled"}
+        break;
+      }
     }
 
     console.error('Custom error handled', error)
     reply.status(httpCode).send(message)
+  } else {
+    console.error('Unhandled error', error)
+    reply.status(500).send({ error: 'An unexpected error occured'})
   }
-
-  console.error('Unhandled error', error)
-  reply.status(500).send({ error: 'An unexpected error occured'})
 }
 
 export default errorHandler
