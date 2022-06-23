@@ -1,0 +1,60 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "unify-fastify",
+  "author": "mike",
+  "module": "dist/unify-fastify.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/unify-fastify.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/unify-fastify.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "dependencies": {
+    "@types/node": "^18.0.0",
+    "fastify": "^4.1.0",
+    "unify-errors": "^1.2.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^28.1.1",
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "husky": "^8.0.1",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
+}
