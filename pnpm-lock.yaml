@@ -4,11 +4,11 @@ specifiers:
   '@types/node': ^17.0.32
   fastify: ^3.29.0
   typescript: ^4.6.4
-  unify-errors: ^1.0.20
+  unify-errors: ^1.2.0
 
 dependencies:
   fastify: 3.29.0
-  unify-errors: 1.0.20
+  unify-errors: 1.2.0
 
 devDependencies:
   '@types/node': 17.0.32
@@ -314,8 +314,8 @@ packages:
     hasBin: true
     dev: true
 
-  /unify-errors/1.0.20:
-    resolution: {integrity: sha512-KQ57Pq1bkgeH+jF2u7w6Cuj6BvREQkP2FdxtogM4HmdBu/9aDl30Q09SwP9Z5Iu/Q/WWCrhpECUOYEl3prJ3IQ==}
+  /unify-errors/1.2.0:
+    resolution: {integrity: sha512-YGO/dFjmE4gHb13sdi5PgNmLZP0cP7yXyee92MrM7RLm3yperw0CdQVDv7iazlxK3zxT84UqB0QCBVorKqYdzg==}
     engines: {node: '>=10'}
     dev: false
 
