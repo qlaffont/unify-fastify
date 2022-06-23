@@ -1,44 +1,42 @@
 import { FastifyError, FastifyRequest, FastifyReply } from 'fastify'
-import { CustomError, BadRequest, Unauthorized, Forbidden, NotFound, RequestTimeOut, InternalServerError, NotImplemented } from 'unify-errors'
+import { CustomError, BadRequest, Unauthorized, Forbidden, NotFound, TimeOut, InternalServerError, NotImplemented } from 'unify-errors'
 
 const errorHandler = (error: FastifyError, request: FastifyRequest, reply: FastifyReply) => {
   if(error instanceof CustomError) {
     let httpCode: number=0, message: any = {}
 
-    console.log('DEBUG', typeof error )
-
-    switch(error) {
-      case BadRequest(): {
+    switch(error.constructor) {
+      case BadRequest: {
         httpCode=400
         message={msg: "That's bad request"}
         break;
       }
-      case Unauthorized(): {
+      case Unauthorized: {
         httpCode=401
         message={msg: "That's unauthorized"}
         break;
       }
-      case Forbidden(): {
+      case Forbidden: {
         httpCode=403
         message={msg: "That's forbidden"}
         break;
       }
-      case NotFound(): {
+      case NotFound: {
         httpCode=404
         message={msg: "That's not found"}
         break;
       }
-      case RequestTimeOut(): {
+      case TimeOut: {
         httpCode=408
         message={msg: "That's time out"}
         break;
       }
-      case InternalServerError(): {
+      case InternalServerError: {
         httpCode=500
         message={msg: "That's intrenal server error"}
         break;
       }
-      case NotImplemented(): {
+      case NotImplemented: {
         httpCode=501
         message={msg: "That's not implemented"}
         break;
@@ -50,7 +48,7 @@ const errorHandler = (error: FastifyError, request: FastifyRequest, reply: Fasti
       }
     }
 
-    console.error('Custom error handled', error)
+    console.error('Custom error handled: ', error)
     reply.status(httpCode).send(message)
   } else {
     console.error('Unhandled error', error)

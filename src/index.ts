@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import { BadRequest, Forbidden, Unauthorized, InternalServer, NotFound, NotImplemented, TimeOut } from 'unify-errors';
+import { BadRequest, Forbidden, Unauthorized, InternalServerError, NotFound, NotImplemented, TimeOut } from 'unify-errors';
 import errorHandler from './handler/ErrorHandler';
 
 ////////////////////////////////////////
@@ -36,7 +36,7 @@ server.get('/request-time-out', async (request, reply) => {
 })
 
 server.get('/internal', async (request, reply) => {
-  throw new InternalServer({ example: 'An internal server error'})
+  throw new InternalServerError({ example: 'An internal server error'})
 })
 
 server.get('/not-implemented', async (request, reply) => {

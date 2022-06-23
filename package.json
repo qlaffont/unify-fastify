@@ -21,7 +21,7 @@
   "homepage": "https://github.com/flexper/unify-fastify#readme",
   "dependencies": {
     "fastify": "^3.29.0",
-    "unify-errors": "^1.0.20"
+    "unify-errors": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.32",
