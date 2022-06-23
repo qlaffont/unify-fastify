@@ -49,7 +49,11 @@ server.get('/not-custom', async (request, reply) => {
 
 ////////////////////////////////////////
 
-server.listen(8080, (err, address) => {
+const config = {
+  port: 8080,
+}
+
+server.listen(config, (err, address) => {
   if (err) {
     console.error(err)
     process.exit(1)
