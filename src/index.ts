@@ -1,5 +1,5 @@
 import fastify from 'fastify'
-import { BadRequest, Forbidden, Unauthorized } from 'unify-errors';
+import { BadRequest, Forbidden, Unauthorized, InternalServer, NotFound, NotImplemented, TimeOut } from 'unify-errors';
 import errorHandler from './handler/ErrorHandler';
 
 ////////////////////////////////////////
@@ -16,31 +16,31 @@ server.get('/ping', async (request, reply) => {
 // Test error routes
 
 server.get('/bad-request', async (request, reply) => {
-  throw BadRequest({ example: 'A bad request error'})
+  throw new BadRequest({ example: 'A bad request error'})
 })
 
 server.get('/unauthorized', async (request, reply) => {
-  throw Unauthorized({ example: 'An unauthorized error'})
+  throw new Unauthorized({ example: 'An unauthorized error'})
 })
 
 server.get('/forbidden', async (request, reply) => {
-  throw Forbidden({ example: 'A forbidden error'})
+  throw new Forbidden({ example: 'A forbidden error'})
 })
 
 server.get('/not-found', async (request, reply) => {
-  throw BadRequest({ example: 'A not found error'})
+  throw new NotFound({ example: 'A not found error'})
 })
 
 server.get('/request-time-out', async (request, reply) => {
-  throw BadRequest({ example: 'A request time out error'})
+  throw new TimeOut({ example: 'A request time out error'})
 })
 
 server.get('/internal', async (request, reply) => {
-  throw BadRequest({ example: 'An internal server error'})
+  throw new InternalServer({ example: 'An internal server error'})
 })
 
 server.get('/not-implemented', async (request, reply) => {
-  throw BadRequest({ example: 'A not implemented error'})
+  throw new NotImplemented({ example: 'A not implemented error'})
 })
 
 server.get('/not-custom', async (request, reply) => {
