@@ -47,6 +47,7 @@
   "dependencies": {
     "@types/node": "^18.0.0",
     "fastify": "^4.1.0",
+    "fastify-plugin": "^3.0.1",
     "unify-errors": "^1.2.0"
   },
   "devDependencies": {

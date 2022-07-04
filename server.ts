@@ -1,12 +1,12 @@
 import fastify from 'fastify'
 import { BadRequest, Forbidden, Unauthorized, InternalServerError, NotFound, NotImplemented, TimeOut } from 'unify-errors';
-import errorHandler from './src';
+import errorPlugin from './src';
 
 ////////////////////////////////////////
 // Setup
 
 const server = fastify()
-server.setErrorHandler(errorHandler) // should not have to be implemented
+server.register(errorPlugin)
 
 server.get('/ping', async () => {
   return 'pong\n'
