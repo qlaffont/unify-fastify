@@ -1,7 +1,7 @@
 import { FastifyError, FastifyRequest, FastifyReply } from 'fastify'
 import { CustomError, BadRequest, Unauthorized, Forbidden, NotFound, TimeOut, InternalServerError, NotImplemented } from 'unify-errors'
 
-const errorHandler = (error: FastifyError, request: FastifyRequest, reply: FastifyReply) => {
+const errorHandler = (error: FastifyError, _: FastifyRequest, reply: FastifyReply) => {
   if(error instanceof CustomError) {
     let httpCode: number=0, message: any = {}
 
