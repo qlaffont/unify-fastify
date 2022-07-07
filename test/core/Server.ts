@@ -17,7 +17,7 @@ export class DefaultError extends CustomError {
     super('A default error', context);
 
     // Set the prototype explicitly.
-    Object.setPrototypeOf(this, InternalServerError.prototype);
+    Object.setPrototypeOf(this, DefaultError.prototype);
   }
 }
 
