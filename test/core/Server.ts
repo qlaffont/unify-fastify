@@ -7,8 +7,19 @@ import {
   NotFound,
   NotImplemented,
   TimeOut,
+  CustomError,
+  CustomErrorContext,
 } from 'unify-errors';
 import errorPlugin from '../../src';
+
+export class DefaultError extends CustomError {
+  constructor(public context?: CustomErrorContext) {
+    super('A default error', context);
+
+    // Set the prototype explicitly.
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+  }
+}
 
 const makeServer = () => {
   const server = fastify();
@@ -44,6 +55,10 @@ const makeServer = () => {
 
   server.get('/not-custom', async () => {
     throw new Error('A generic, not customized error');
+  });
+
+  server.get('/default-case', async () => {
+    throw new DefaultError({ example: 'A CustomError but not handled' });
   });
 
   return server;

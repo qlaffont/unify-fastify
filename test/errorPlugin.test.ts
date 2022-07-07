@@ -98,4 +98,13 @@ describe('errorPlugin', () => {
       500
     );
   });
+
+  it("default error extending 'CustomError' from 'unify-errors'", async () => {
+    await testRoute(
+      server,
+      '/default-case',
+      { example: 'A CustomError but not handled' },
+      500
+    );
+  });
 });
