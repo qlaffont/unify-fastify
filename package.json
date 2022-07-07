@@ -11,7 +11,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "dev": "wds server.ts",
+    "dev": "wds example/server.ts",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
