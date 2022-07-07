@@ -51,6 +51,12 @@
     "fastify-plugin": "^3.0.1",
     "unify-errors": "^1.2.0"
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ]
+  },
   "devDependencies": {
     "@jest/globals": "^28.1.1",
     "@size-limit/preset-small-lib": "^7.0.8",
