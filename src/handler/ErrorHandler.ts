@@ -14,9 +14,8 @@ const errorHandler = (
   error: FastifyError,
   _: FastifyRequest,
   reply: FastifyReply
-) => {
+): void => {
   if (error instanceof CustomError) {
-    const response = (error as CustomError).context || '';
     let httpCode = 0;
 
     switch (error.constructor) {
@@ -53,6 +52,11 @@ const errorHandler = (
         break;
       }
     }
+
+    const response = {
+      error: error.constructor.name,
+      context: (error as CustomError).context || undefined,
+    };
 
     reply.status(httpCode).send(response);
   } else {
