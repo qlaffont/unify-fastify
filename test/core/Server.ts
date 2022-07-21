@@ -1,15 +1,16 @@
 import fastify from 'fastify';
 import {
   BadRequest,
+  CustomError,
+  CustomErrorContext,
   Forbidden,
-  Unauthorized,
   InternalServerError,
   NotFound,
   NotImplemented,
   TimeOut,
-  CustomError,
-  CustomErrorContext,
+  Unauthorized,
 } from 'unify-errors';
+
 import errorPlugin from '../../src';
 
 export class DefaultError extends CustomError {

@@ -1,13 +1,13 @@
-import { FastifyError, FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
 import {
-  CustomError,
   BadRequest,
-  Unauthorized,
+  CustomError,
   Forbidden,
-  NotFound,
-  TimeOut,
   InternalServerError,
+  NotFound,
   NotImplemented,
+  TimeOut,
+  Unauthorized,
 } from 'unify-errors';
 
 const errorHandler = (
@@ -17,7 +17,7 @@ const errorHandler = (
 ) => {
   if (error instanceof CustomError) {
     const response = (error as CustomError).context || '';
-    let httpCode: number = 0;
+    let httpCode = 0;
 
     switch (error.constructor) {
       case BadRequest: {
