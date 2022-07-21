@@ -10,7 +10,7 @@ const testRoute = async (
   routePath: string,
   supposedMessage: Record<string, unknown>,
   supposedStatus: number
-) => {
+): Promise<void> => {
   const response = await server.inject({
     method: 'GET',
     url: routePath,
@@ -31,7 +31,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/bad-request',
-      { example: 'A bad request error' },
+      {
+        error: 'BadRequest',
+        context: { example: 'A bad request error' },
+      },
       400
     );
   });
@@ -40,7 +43,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/unauthorized',
-      { example: 'An unauthorized error' },
+      {
+        error: 'Unauthorized',
+        context: { example: 'An unauthorized error' },
+      },
       401
     );
   });
@@ -49,7 +55,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/forbidden',
-      { example: 'A forbidden error' },
+      {
+        error: 'Forbidden',
+        context: { example: 'A forbidden error' },
+      },
       403
     );
   });
@@ -58,7 +67,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/not-found',
-      { example: 'A not found error' },
+      {
+        error: 'NotFound',
+        context: { example: 'A not found error' },
+      },
       404
     );
   });
@@ -67,7 +79,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/request-time-out',
-      { example: 'A request time out error' },
+      {
+        error: 'TimeOut',
+        context: { example: 'A request time out error' },
+      },
       408
     );
   });
@@ -76,7 +91,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/internal',
-      { example: 'An internal server error' },
+      {
+        error: 'InternalServerError',
+        context: { example: 'An internal server error' },
+      },
       500
     );
   });
@@ -85,7 +103,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/not-implemented',
-      { example: 'A not implemented error' },
+      {
+        error: 'NotImplemented',
+        context: { example: 'A not implemented error' },
+      },
       501
     );
   });
@@ -103,7 +124,10 @@ describe('errorPlugin', () => {
     await testRoute(
       server,
       '/default-case',
-      { example: 'A CustomError but not handled' },
+      {
+        error: 'DefaultError',
+        context: { example: 'A CustomError but not handled' },
+      },
       500
     );
   });
