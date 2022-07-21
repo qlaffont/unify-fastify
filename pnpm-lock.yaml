@@ -12,7 +12,7 @@ specifiers:
   tslib: 2.4.0
   typescript: 4.7.4
   unify-errors: ^1.2.0
-  wds: 0.12.0
+  wds: 0.13.2
 
 dependencies:
   '@types/node': 18.0.0
@@ -28,7 +28,7 @@ devDependencies:
   tsdx: 0.14.1_@types+node@18.0.0
   tslib: 2.4.0
   typescript: 4.7.4
-  wds: 0.12.0
+  wds: 0.13.2
 
 packages:
 
@@ -7973,8 +7973,8 @@ packages:
       defaults: 1.0.3
     dev: true
 
-  /wds/0.12.0:
-    resolution: {integrity: sha512-6/eNQ7rO8BE3LWdIPAqEVoiZqV1d8vAF4XQVL++cigJ9iunUMTDsM6Ko19clr9Koxceh37BIMq3dxUYtgwNM2A==}
+  /wds/0.13.2:
+    resolution: {integrity: sha512-35iS2QOBmVJHavTMr6Dhhrsrv4DMLBxxNgvjRcPfGmpM/AysrOVUEyo5L8rf4CF7SoisROYVLwbq7DMRsNe8fA==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     dependencies:
