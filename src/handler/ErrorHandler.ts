@@ -58,6 +58,13 @@ const errorHandler = (
       context: (error as CustomError).context || undefined,
     };
 
+    if (
+      process.env.NODE_ENV &&
+      ['production', 'prod'].includes(process.env.NODE_ENV)
+    ) {
+      delete response.context;
+    }
+
     reply.status(httpCode).send(response);
   } else {
     reply.status(500).send({ error: 'An unexpected error occured' });
