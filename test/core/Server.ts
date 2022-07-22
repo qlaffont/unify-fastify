@@ -11,7 +11,7 @@ import {
   Unauthorized,
 } from 'unify-errors';
 
-import errorPlugin from '../../src/plugin/errorPlugin';
+import errorPlugin from '../../src';
 
 export class DefaultError extends CustomError {
   constructor(public context?: CustomErrorContext) {
