@@ -13,6 +13,9 @@ import {
 } from 'unify-errors';
 
 export interface Options {
+  /**
+   * Removes the 'context' key from the error response if NODE_ENV is 'production'
+   */
   hideContextOnProd: boolean;
 }
 

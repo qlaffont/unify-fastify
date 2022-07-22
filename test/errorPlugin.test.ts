@@ -22,11 +22,11 @@ const testRoute = async (
 
 ////////////////////
 
-beforeEach(() => {
-  server = makeServer();
-});
+describe('errors rejection', () => {
+  beforeEach(() => {
+    server = makeServer();
+  });
 
-describe('errorPlugin', () => {
   it('bad request', async () => {
     await testRoute(
       server,
@@ -131,17 +131,100 @@ describe('errorPlugin', () => {
       500
     );
   });
+});
 
-  it("no 'context' key in production", async () => {
-    process.env.NODE_ENV = 'production';
+describe('plugin options', () => {
+  describe("'hideContextOnProd'", () => {
+    describe('in a production environnement', () => {
+      it("by default, should not hide 'context'", async () => {
+        process.env.NODE_ENV = 'production';
 
-    await testRoute(
-      server,
-      '/request-time-out',
-      {
-        error: 'TimeOut',
-      },
-      408
-    );
+        const server = makeServer();
+
+        await testRoute(
+          server,
+          '/bad-request',
+          {
+            error: 'BadRequest',
+            context: { example: 'A bad request error' },
+          },
+          400
+        );
+      });
+
+      it("should hide 'context' key if true", async () => {
+        process.env.NODE_ENV = 'production';
+
+        const server = makeServer({ hideContextOnProd: true });
+
+        await testRoute(
+          server,
+          '/bad-request',
+          {
+            error: 'BadRequest',
+          },
+          400
+        );
+      });
+
+      it("should not hide 'context' key if false", async () => {
+        process.env.NODE_ENV = 'production';
+
+        const server = makeServer({ hideContextOnProd: false });
+
+        await testRoute(
+          server,
+          '/bad-request',
+          {
+            error: 'BadRequest',
+            context: { example: 'A bad request error' },
+          },
+          400
+        );
+      });
+    });
+  });
+
+  describe('NOT in a production environnement', () => {
+    it("by default, should not hide 'context' key", async () => {
+      const server = makeServer();
+
+      await testRoute(
+        server,
+        '/bad-request',
+        {
+          error: 'BadRequest',
+          context: { example: 'A bad request error' },
+        },
+        400
+      );
+    });
+
+    it("should hide 'context' key if true", async () => {
+      const server = makeServer({ hideContextOnProd: true });
+
+      await testRoute(
+        server,
+        '/bad-request',
+        {
+          error: 'BadRequest',
+        },
+        400
+      );
+    });
+
+    it("should not hide 'context' key if false", async () => {
+      const server = makeServer({ hideContextOnProd: false });
+
+      await testRoute(
+        server,
+        '/bad-request',
+        {
+          error: 'BadRequest',
+          context: { example: 'A bad request error' },
+        },
+        400
+      );
+    });
   });
 });
