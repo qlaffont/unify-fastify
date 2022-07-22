@@ -23,12 +23,19 @@ import unifyFastifyPlugin from 'unify-fastify';
 import { BadRequest } from 'unify-errors';
 
 const server = fastify()
-server.register(unifyFastifyPlugin)
+server.register(unifyFastifyPlugin, { /* options */ })
 
 server.get('/bad-request', async () => {
   throw new BadRequest({ example: 'A bad request error'})
 })
 ```
+
+## Plugin options
+
+| name | default | description |
+|---                  |---         |---               |
+| _hideContextOnProd_ | false | If **NODE_ENV** is set to 'production', will remove the 'context' key from the error response |
+
 
 ## Tests
 
