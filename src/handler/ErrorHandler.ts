@@ -1,74 +1,76 @@
-import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
-import {
-  BadRequest,
-  CustomError,
-  Forbidden,
-  InternalServerError,
-  NotFound,
-  NotImplemented,
-  TimeOut,
-  Unauthorized,
-} from 'unify-errors';
+// import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
+// import {
+//   BadRequest,
+//   CustomError,
+//   Forbidden,
+//   InternalServerError,
+//   NotFound,
+//   NotImplemented,
+//   TimeOut,
+//   Unauthorized,
+// } from 'unify-errors';
 
-const errorHandler = (
-  error: FastifyError,
-  _: FastifyRequest,
-  reply: FastifyReply
-): void => {
-  if (error instanceof CustomError) {
-    let httpCode = 0;
+// export interface Options {
+//   hideContextOnProd: boolean;
+// }
 
-    switch (error.constructor) {
-      case BadRequest: {
-        httpCode = 400;
-        break;
-      }
-      case Unauthorized: {
-        httpCode = 401;
-        break;
-      }
-      case Forbidden: {
-        httpCode = 403;
-        break;
-      }
-      case NotFound: {
-        httpCode = 404;
-        break;
-      }
-      case TimeOut: {
-        httpCode = 408;
-        break;
-      }
-      case InternalServerError: {
-        httpCode = 500;
-        break;
-      }
-      case NotImplemented: {
-        httpCode = 501;
-        break;
-      }
-      default: {
-        httpCode = 500;
-        break;
-      }
-    }
+// const errorHandler = (
+//   error: FastifyError,
+//   _: FastifyRequest,
+//   reply: FastifyReply
+//   // options: Options
+// ): void => {
+//   if (error instanceof CustomError) {
+//     let httpCode = 0;
 
-    const response = {
-      error: error.constructor.name,
-      context: (error as CustomError).context || undefined,
-    };
+//     switch (error.constructor) {
+//       case BadRequest: {
+//         httpCode = 400;
+//         break;
+//       }
+//       case Unauthorized: {
+//         httpCode = 401;
+//         break;
+//       }
+//       case Forbidden: {
+//         httpCode = 403;
+//         break;
+//       }
+//       case NotFound: {
+//         httpCode = 404;
+//         break;
+//       }
+//       case TimeOut: {
+//         httpCode = 408;
+//         break;
+//       }
+//       case InternalServerError: {
+//         httpCode = 500;
+//         break;
+//       }
+//       case NotImplemented: {
+//         httpCode = 501;
+//         break;
+//       }
+//       default: {
+//         httpCode = 500;
+//         break;
+//       }
+//     }
 
-    if (
-      process.env.NODE_ENV &&
-      ['production', 'prod'].includes(process.env.NODE_ENV)
-    ) {
-      delete response.context;
-    }
+//     const response = {
+//       error: error.constructor.name,
+//       context: (error as CustomError).context || undefined,
+//     };
 
-    reply.status(httpCode).send(response);
-  } else {
-    reply.status(500).send({ error: 'An unexpected error occured' });
-  }
-};
+//     if (options.hideContextOnProd && process.env?.NODE_ENV === 'production') {
+//       delete response.context;
+//     }
 
-export default errorHandler;
+//     reply.status(httpCode).send(response);
+//   } else {
+//     reply.status(500).send({ error: 'An unexpected error occured' });
+//   }
+// };
+
+// export default errorHandler;
