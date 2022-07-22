@@ -131,4 +131,17 @@ describe('errorPlugin', () => {
       500
     );
   });
+
+  it("no 'context' key in production", async () => {
+    process.env.NODE_ENV = 'production';
+
+    await testRoute(
+      server,
+      '/request-time-out',
+      {
+        error: 'TimeOut',
+      },
+      408
+    );
+  });
 });
