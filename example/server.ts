@@ -14,8 +14,10 @@ import unifyFastify from '../src';
 ////////////////////////////////////////
 // Setup
 
+process.env.NODE_ENV = 'production';
+
 const server = fastify();
-server.register(unifyFastify, { hideContextOnProd: false });
+server.register(unifyFastify, { hideContextOnProd: true });
 
 server.get('/ping', async () => {
   return 'pong\n';

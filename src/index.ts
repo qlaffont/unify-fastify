@@ -68,7 +68,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
 
           if (
             options.hideContextOnProd &&
-            process.env?.NODE_ENV === 'production'
+            process.env.NODE_ENV === 'production'
           ) {
             delete response.context;
           }
