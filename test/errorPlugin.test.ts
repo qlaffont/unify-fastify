@@ -144,7 +144,7 @@ describe('plugin options', () => {
         process.env.NODE_ENV = undefined;
       });
 
-      it("by default, should not hide 'context'", async () => {
+      it("by default, should hide 'context' if node env is production", async () => {
         const server = makeServer();
 
         await testRoute(
@@ -152,7 +152,6 @@ describe('plugin options', () => {
           '/bad-request',
           {
             error: 'Bad Request',
-            context: { example: 'A bad request error' },
           },
           400
         );
