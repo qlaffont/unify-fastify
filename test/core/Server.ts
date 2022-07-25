@@ -11,7 +11,7 @@ import {
   Unauthorized,
 } from 'unify-errors';
 
-import errorPlugin from '../../src';
+import errorPlugin, { Options } from '../../src';
 
 export class DefaultError extends CustomError {
   constructor(public context?: CustomErrorContext) {
@@ -22,9 +22,9 @@ export class DefaultError extends CustomError {
   }
 }
 
-const makeServer = () => {
+const makeServer = (options?: Options) => {
   const server = fastify();
-  server.register(errorPlugin);
+  server.register(errorPlugin, options);
 
   server.get('/bad-request', async () => {
     throw new BadRequest({ example: 'A bad request error' });
