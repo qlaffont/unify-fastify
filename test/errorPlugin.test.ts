@@ -32,7 +32,7 @@ describe('errors rejection', () => {
       server,
       '/bad-request',
       {
-        error: 'BadRequest',
+        error: 'Bad Request',
         context: { example: 'A bad request error' },
       },
       400
@@ -68,7 +68,7 @@ describe('errors rejection', () => {
       server,
       '/not-found',
       {
-        error: 'NotFound',
+        error: 'Not Found',
         context: { example: 'A not found error' },
       },
       404
@@ -80,7 +80,7 @@ describe('errors rejection', () => {
       server,
       '/request-time-out',
       {
-        error: 'TimeOut',
+        error: 'Request Time-out',
         context: { example: 'A request time out error' },
       },
       408
@@ -92,7 +92,7 @@ describe('errors rejection', () => {
       server,
       '/internal',
       {
-        error: 'InternalServerError',
+        error: 'Internal Server Error',
         context: { example: 'An internal server error' },
       },
       500
@@ -104,7 +104,7 @@ describe('errors rejection', () => {
       server,
       '/not-implemented',
       {
-        error: 'NotImplemented',
+        error: 'Not Implemented',
         context: { example: 'A not implemented error' },
       },
       501
@@ -125,7 +125,7 @@ describe('errors rejection', () => {
       server,
       '/default-case',
       {
-        error: 'DefaultError',
+        error: 'A default error',
         context: { example: 'A CustomError but not handled' },
       },
       500
@@ -151,14 +151,14 @@ describe('plugin options', () => {
           server,
           '/bad-request',
           {
-            error: 'BadRequest',
+            error: 'Bad Request',
             context: { example: 'A bad request error' },
           },
           400
         );
       });
 
-      it("should hide 'context' key if true", async () => {
+      it("should hide 'context' key if true and node env production", async () => {
         process.env.NODE_ENV = 'production';
 
         const server = makeServer({ hideContextOnProd: true });
@@ -167,7 +167,7 @@ describe('plugin options', () => {
           server,
           '/bad-request',
           {
-            error: 'BadRequest',
+            error: 'Bad Request',
           },
           400
         );
@@ -182,7 +182,7 @@ describe('plugin options', () => {
           server,
           '/bad-request',
           {
-            error: 'BadRequest',
+            error: 'Bad Request',
             context: { example: 'A bad request error' },
           },
           400
@@ -206,7 +206,7 @@ describe('plugin options', () => {
           server,
           '/bad-request',
           {
-            error: 'BadRequest',
+            error: 'Bad Request',
             context: { example: 'A bad request error' },
           },
           400
@@ -220,7 +220,7 @@ describe('plugin options', () => {
           server,
           '/bad-request',
           {
-            error: 'BadRequest',
+            error: 'Bad Request',
             context: { example: 'A bad request error' },
           },
           400
@@ -234,7 +234,7 @@ describe('plugin options', () => {
           server,
           '/bad-request',
           {
-            error: 'BadRequest',
+            error: 'Bad Request',
             context: { example: 'A bad request error' },
           },
           400

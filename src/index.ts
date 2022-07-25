@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyPluginAsync } from 'fastify';
-import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyReply, FastifyRequest } from 'fastify';
 import fp from 'fastify-plugin';
 import {
   BadRequest,
@@ -22,7 +22,7 @@ export interface Options {
 const errorPlugin: FastifyPluginAsync<Options> = fp(
   async (fastify: FastifyInstance, options: Options) => {
     fastify.setErrorHandler(
-      (error: FastifyError, _: FastifyRequest, reply: FastifyReply) => {
+      (error: CustomError, _: FastifyRequest, reply: FastifyReply) => {
         if (error instanceof CustomError) {
           let httpCode = 0;
 
@@ -62,7 +62,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
           }
 
           const response = {
-            error: error.constructor.name,
+            error: error.message,
             context: (error as CustomError).context || undefined,
           };
 
