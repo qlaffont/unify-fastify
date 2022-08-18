@@ -22,9 +22,10 @@ export class DefaultError extends CustomError {
   }
 }
 
-const makeServer = (options?: Options) => {
+const makeServer = async (options?: Options) => {
   const server = fastify();
-  server.register(errorPlugin, options);
+
+  await server.register(errorPlugin, options);
 
   server.get('/bad-request', async () => {
     throw new BadRequest({ example: 'A bad request error' });

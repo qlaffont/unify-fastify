@@ -22,9 +22,19 @@ const testRoute = async (
 
 ////////////////////
 
+describe('Fastify loading', () => {
+  beforeEach(async () => {
+    server = await makeServer();
+  });
+
+  it('Check if plugin is loaded', async () => {
+    expect(server.printPlugins()).toContain('unify-fastify');
+  });
+});
+
 describe('errors rejection', () => {
-  beforeEach(() => {
-    server = makeServer();
+  beforeEach(async () => {
+    server = await makeServer();
   });
 
   it('bad request', async () => {
@@ -154,7 +164,7 @@ describe('plugin options', () => {
       });
 
       it("by default, should hide 'context' if node env is production", async () => {
-        const server = makeServer();
+        const server = await makeServer();
 
         await testRoute(
           server,
@@ -169,7 +179,7 @@ describe('plugin options', () => {
       it("should hide 'context' key if true and node env production", async () => {
         process.env.NODE_ENV = 'production';
 
-        const server = makeServer({ hideContextOnProd: true });
+        const server = await makeServer({ hideContextOnProd: true });
 
         await testRoute(
           server,
@@ -184,7 +194,7 @@ describe('plugin options', () => {
       it("should not hide 'context' key if false", async () => {
         process.env.NODE_ENV = 'production';
 
-        const server = makeServer({ hideContextOnProd: false });
+        const server = await makeServer({ hideContextOnProd: false });
 
         await testRoute(
           server,
@@ -208,7 +218,7 @@ describe('plugin options', () => {
       });
 
       it("by default, should not hide 'context' key", async () => {
-        const server = makeServer();
+        const server = await makeServer();
 
         await testRoute(
           server,
@@ -222,7 +232,7 @@ describe('plugin options', () => {
       });
 
       it("should not hide 'context' key even true because not in production", async () => {
-        const server = makeServer({ hideContextOnProd: true });
+        const server = await makeServer({ hideContextOnProd: true });
 
         await testRoute(
           server,
@@ -236,7 +246,7 @@ describe('plugin options', () => {
       });
 
       it("should not hide 'context' key if false", async () => {
-        const server = makeServer({ hideContextOnProd: false });
+        const server = await makeServer({ hideContextOnProd: false });
 
         await testRoute(
           server,

@@ -83,6 +83,10 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
     fastify.setNotFoundHandler(() => {
       throw new NotFound();
     });
+  },
+  {
+    fastify: '4.x',
+    name: 'unify-fastify',
   }
 );
 
