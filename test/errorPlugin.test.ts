@@ -73,6 +73,15 @@ describe('errors rejection', () => {
       },
       404
     );
+
+    await testRoute(
+      server,
+      '/not-found-url-not-registered',
+      {
+        error: 'Not Found',
+      },
+      404
+    );
   });
 
   it('time-out', async () => {

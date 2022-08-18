@@ -79,6 +79,10 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
         }
       }
     );
+
+    fastify.setNotFoundHandler(() => {
+      throw new NotFound();
+    });
   }
 );
 
