@@ -57,6 +57,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
             }
             default: {
               httpCode = 500;
+              fastify.log.error(error);
               break;
             }
           }
@@ -76,6 +77,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
           reply.status(httpCode).send(response);
         } else {
           reply.status(500).send({ error: 'An unexpected error occured' });
+          fastify.log.error(error);
         }
       }
     );
