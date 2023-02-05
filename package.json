@@ -64,7 +64,7 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
+    "@types/node": "18.11.19",
     "@jest/globals": "29.4.1",
     "@size-limit/preset-small-lib": "8.1.2",
     "husky": "8.0.3",
