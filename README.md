@@ -34,7 +34,7 @@ server.get('/bad-request', async () => {
 
 | name | default | description |
 |---                  |---         |---               |
-| _hideContextOnProd_ | false | If **NODE_ENV** is set to 'production', will remove the 'context' key from the error response |
+| _hideError_ | false | Return stack or not |
 
 
 ## Tests

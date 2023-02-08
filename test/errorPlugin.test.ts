@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it } from '@jest/globals';
 import { FastifyInstance } from 'fastify';
 
 import makeServer from './core/Server';
@@ -10,14 +10,16 @@ const testRoute = async (
   routePath: string,
   supposedMessage: Record<string, unknown>,
   supposedStatus: number
-): Promise<void> => {
+): Promise<any> => {
   const response = await server.inject({
     method: 'GET',
     url: routePath,
   });
 
-  expect(JSON.parse(response.body)).toStrictEqual(supposedMessage);
+  expect(JSON.parse(response.body)).toMatchObject(supposedMessage);
   expect(response.statusCode).toBe(supposedStatus);
+
+  return response;
 };
 
 ////////////////////
@@ -153,111 +155,35 @@ describe('errors rejection', () => {
 });
 
 describe('plugin options', () => {
-  describe("'hideContextOnProd'", () => {
-    describe('in a production environnement', () => {
-      beforeEach(() => {
-        process.env.NODE_ENV = 'production';
+  describe("'hideError'", () => {
+    it('should hide stack', async () => {
+      const server = await makeServer({
+        hideError: true,
       });
 
-      afterEach(() => {
-        process.env.NODE_ENV = undefined;
-      });
-
-      it("by default, should hide 'context' if node env is production", async () => {
-        const server = await makeServer();
-
-        await testRoute(
-          server,
-          '/bad-request',
-          {
-            error: 'Bad Request',
-          },
-          400
-        );
-      });
-
-      it("should hide 'context' key if true and node env production", async () => {
-        process.env.NODE_ENV = 'production';
-
-        const server = await makeServer({ hideContextOnProd: true });
-
-        await testRoute(
-          server,
-          '/bad-request',
-          {
-            error: 'Bad Request',
-          },
-          400
-        );
-      });
-
-      it("should not hide 'context' key if false", async () => {
-        process.env.NODE_ENV = 'production';
-
-        const server = await makeServer({ hideContextOnProd: false });
-
-        await testRoute(
-          server,
-          '/bad-request',
-          {
-            error: 'Bad Request',
-            context: { example: 'A bad request error' },
-          },
-          400
-        );
-      });
+      const response = await testRoute(
+        server,
+        '/bad-request',
+        {
+          error: 'Bad Request',
+        },
+        400
+      );
+      expect(JSON.parse(response.body)?.stack).not.toBeDefined();
     });
 
-    describe('NOT in a production environnement', () => {
-      beforeEach(() => {
-        process.env.NODE_ENV = 'dev';
-      });
+    it('should not hide stack', async () => {
+      const server = await makeServer();
 
-      afterEach(() => {
-        process.env.NODE_ENV = undefined;
-      });
-
-      it("by default, should not hide 'context' key", async () => {
-        const server = await makeServer();
-
-        await testRoute(
-          server,
-          '/bad-request',
-          {
-            error: 'Bad Request',
-            context: { example: 'A bad request error' },
-          },
-          400
-        );
-      });
-
-      it("should not hide 'context' key even true because not in production", async () => {
-        const server = await makeServer({ hideContextOnProd: true });
-
-        await testRoute(
-          server,
-          '/bad-request',
-          {
-            error: 'Bad Request',
-            context: { example: 'A bad request error' },
-          },
-          400
-        );
-      });
-
-      it("should not hide 'context' key if false", async () => {
-        const server = await makeServer({ hideContextOnProd: false });
-
-        await testRoute(
-          server,
-          '/bad-request',
-          {
-            error: 'Bad Request',
-            context: { example: 'A bad request error' },
-          },
-          400
-        );
-      });
+      const response = await testRoute(
+        server,
+        '/bad-request',
+        {
+          error: 'Bad Request',
+        },
+        400
+      );
+      expect(JSON.parse(response.body)?.stack).toBeDefined();
     });
   });
 });

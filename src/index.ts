@@ -14,9 +14,9 @@ import {
 
 export interface Options {
   /**
-   * Removes the 'context' key from the error response if NODE_ENV is 'production'
+   * Removes the 'error' key from the error response
    */
-  hideContextOnProd?: boolean;
+  hideError?: boolean;
 }
 
 const errorPlugin: FastifyPluginAsync<Options> = fp(
@@ -65,19 +65,36 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
           const response = {
             error: error.message,
             context: (error as CustomError).context || undefined,
+            ...(options?.hideError ? {} : { stack: error.stack }),
           };
-
-          if (
-            options?.hideContextOnProd !== false &&
-            process.env.NODE_ENV === 'production'
-          ) {
-            delete response.context;
-          }
 
           reply.status(httpCode).send(response);
         } else {
-          reply.status(500).send({ error: 'An unexpected error occured' });
-          fastify.log.error(error);
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          if (error?.validation?.length > 0) {
+            reply.status(400).send({
+              error: 'BadRequest',
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              context: `${error?.validationContext || ''} ${
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                error?.validation[0].message
+              }`,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              ...(options?.hideError ? {} : { stack: error.stack }),
+            });
+          } else {
+            reply.status(500).send({
+              error: 'An unexpected error occured',
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              ...(options?.hideError ? {} : { stack: error.stack }),
+            });
+            fastify.log.error(error);
+          }
         }
       }
     );
