@@ -74,7 +74,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
           //@ts-ignore
           if (error?.validation?.length > 0) {
             reply.status(400).send({
-              error: 'BadRequest',
+              error: 'Bad Request',
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
               context: `${error?.validationContext || ''} ${
@@ -82,6 +82,15 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
                 //@ts-ignore
                 error?.validation[0].message
               }`,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              ...(options?.hideError ? {} : { stack: error.stack }),
+            });
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+          } else if (error?.message?.toLowerCase()?.includes('Rate limit')) {
+            reply.status(429).send({
+              error: 'Too Many Requests',
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
               ...(options?.hideError ? {} : { stack: error.stack }),
