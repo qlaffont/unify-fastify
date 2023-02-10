@@ -88,7 +88,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
             });
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore
-          } else if (error?.message?.toLowerCase()?.includes('Rate limit')) {
+          } else if (error?.message?.toLowerCase()?.includes('rate limit')) {
             reply.status(429).send({
               error: 'Too Many Requests',
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
