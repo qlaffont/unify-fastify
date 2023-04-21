@@ -1,6 +1,8 @@
 import { FastifyInstance, FastifyPluginAsync } from 'fastify';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import fp from 'fastify-plugin';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+const fp = require('fastify-plugin');
 import {
   BadRequest,
   CustomError,
