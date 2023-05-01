@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { FastifyInstance, FastifyPluginAsync } from 'fastify';
 import { FastifyReply, FastifyRequest } from 'fastify';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -59,6 +60,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
             }
             default: {
               httpCode = 500;
+              //@ts-ignore
               fastify.log.error(error);
               break;
             }
@@ -104,6 +106,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
               //@ts-ignore
               ...(options?.hideError ? {} : { stack: error.stack }),
             });
+            //@ts-ignore
             fastify.log.error(error);
           }
         }
