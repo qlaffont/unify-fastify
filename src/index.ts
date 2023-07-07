@@ -79,13 +79,13 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
           if (error?.validation?.length > 0) {
             reply.status(400).send({
               error: 'Bad Request',
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              //@ts-ignore
-              context: `${error?.validationContext || ''} ${
+              context: `${
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 //@ts-ignore
-                error?.validation[0].message
-              }`,
+                error?.validationContext || ''
+              } ${// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              error?.validation[0].message}`,
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
               ...(options?.hideError ? {} : { stack: error.stack }),
