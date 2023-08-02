@@ -10,6 +10,7 @@ import {
   TimeOut,
   Unauthorized,
 } from 'unify-errors';
+import { fastifyAuthPrismaPlugin } from 'fastify-auth-prisma';
 
 import errorPlugin, { Options } from '../../src';
 
@@ -61,6 +62,23 @@ const makeServer = async (options?: Options) => {
 
   server.get('/default-case', async () => {
     throw new DefaultError({ example: 'A CustomError but not handled' });
+  });
+
+  //@ts-ignore
+  await server.register(fastifyAuthPrismaPlugin, {
+    config: [
+      { url: '/bad-request', method: '*' },
+      { url: '/unauthorized', method: '*' },
+      { url: '/forbidden', method: '*' },
+      { url: '/not-found', method: '*' },
+      { url: '/request-time-out', method: '*' },
+      { url: '/internal', method: '*' },
+      { url: '/not-implemented', method: '*' },
+      { url: '/not-custom', method: '*' },
+      { url: '/default-case', method: '*' },
+    ],
+    prisma: () => {},
+    secret: 'wrongsecret',
   });
 
   return server;

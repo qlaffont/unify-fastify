@@ -32,9 +32,10 @@ server.get('/bad-request', async () => {
 
 ## Plugin options
 
-| name | default | description |
-|---                  |---         |---               |
-| _hideError_ | false | Return stack or not |
+| name             | default | description                      |
+| ---------------- | ------- | -------------------------------- |
+| _disableDetails_ | false   | Disable error details like stack |
+| _disableLog_     | false   | Disable logging on error         |
 
 
 ## Tests

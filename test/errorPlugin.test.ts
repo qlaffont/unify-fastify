@@ -91,9 +91,9 @@ describe('errors rejection', () => {
       server,
       '/not-found-url-not-registered',
       {
-        error: 'Not Found',
+        error: 'Unauthorized',
       },
-      404
+      401
     );
   });
 
@@ -147,8 +147,9 @@ describe('errors rejection', () => {
       server,
       '/default-case',
       {
-        error: 'A default error',
+        error: 'An unexpected error occured',
         context: { example: 'A CustomError but not handled' },
+        errorDetails: 'A default error'
       },
       500
     );
@@ -159,7 +160,7 @@ describe('plugin options', () => {
   describe("'hideError'", () => {
     it('should hide stack', async () => {
       const server = await makeServer({
-        hideError: true,
+        disableDetails: true,
       });
 
       const response = await testRoute(
