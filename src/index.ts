@@ -22,7 +22,7 @@ export interface Options {
   disableDetails?: boolean;
 
   /**
-   * Removes log from this errors
+   * Removes logging
    */
   disableLog?: boolean;
 }
