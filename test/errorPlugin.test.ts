@@ -149,7 +149,7 @@ describe('errors rejection', () => {
       {
         error: 'An unexpected error occured',
         context: { example: 'A CustomError but not handled' },
-        errorDetails: 'A default error'
+        errorDetails: 'A default error',
       },
       500
     );

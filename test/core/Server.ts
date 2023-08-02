@@ -1,4 +1,5 @@
 import fastify from 'fastify';
+import { fastifyAuthPrismaPlugin } from 'fastify-auth-prisma';
 import {
   BadRequest,
   CustomError,
@@ -10,7 +11,6 @@ import {
   TimeOut,
   Unauthorized,
 } from 'unify-errors';
-import { fastifyAuthPrismaPlugin } from 'fastify-auth-prisma';
 
 import errorPlugin, { Options } from '../../src';
 
@@ -64,6 +64,7 @@ const makeServer = async (options?: Options) => {
     throw new DefaultError({ example: 'A CustomError but not handled' });
   });
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   await server.register(fastifyAuthPrismaPlugin, {
     config: [
