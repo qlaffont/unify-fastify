@@ -68,12 +68,12 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
             default: {
               httpCode = 500;
               customErrorMessage = "An unexpected error occured";
-              //@ts-ignore
               break;
             }
           }
 
           if(!options?.disableLog){
+              //@ts-ignore
             fastify.log.error(error);
           }
 
