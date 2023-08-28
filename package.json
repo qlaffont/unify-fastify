@@ -32,14 +32,14 @@
     "trailingComma": "es5"
   },
   "name": "unify-fastify",
-  "author": "flexper",
+  "author": "qlaffont",
   "repository": {
     "type": "git",
-    "url": "https://github.com/flexper/unify-fastify.git"
+    "url": "https://github.com/qlaffont/unify-fastify.git"
   },
   "bugs": {
-    "url": "https://github.com/flexper/unify-fastify/issues",
-    "email": "contact@flexper.fr"
+    "url": "https://github.com/qlaffont/unify-fastify/issues",
+    "email": "contact@qlaffont.com"
   },
   "module": "dist/unify-fastify.esm.js",
   "size-limit": [
