@@ -124,6 +124,7 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
       }
     );
 
+    //@ts-ignore
     fastify.setNotFoundHandler(() => {
       throw new NotFound();
     });
