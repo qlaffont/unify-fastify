@@ -29,6 +29,7 @@ export interface Options {
 
 const errorPlugin: FastifyPluginAsync<Options> = fp(
   async (fastify: FastifyInstance, options: Options) => {
+    //@ts-ignore
     fastify.setErrorHandler(
       (error: CustomError, _: FastifyRequest, reply: FastifyReply) => {
         let httpCode = 0;
@@ -97,9 +98,11 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
               error?.validationContext || ''
-            } ${// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //@ts-ignore
-            error?.validation[0].message}`,
+            } ${
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              error?.validation[0].message
+            }`,
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore
             ...(options?.hideError ? {} : { stack: error.stack }),
