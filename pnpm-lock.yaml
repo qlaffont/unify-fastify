@@ -77,8 +77,8 @@ devDependencies:
     specifier: 5.3.3
     version: 5.3.3
   wds:
-    specifier: 0.18.2
-    version: 0.18.2
+    specifier: 0.19.0
+    version: 0.19.0
 
 packages:
 
@@ -4910,17 +4910,6 @@ packages:
     resolution: {integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==}
     dev: true
 
-  /fast-glob@3.3.0:
-    resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
-    engines: {node: '>=8.6.0'}
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.5
-    dev: true
-
   /fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
     engines: {node: '>=8.6.0'}
@@ -5358,7 +5347,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.3.0
+      fast-glob: 3.3.2
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
@@ -9622,8 +9611,8 @@ packages:
       defaults: 1.0.3
     dev: true
 
-  /wds@0.18.2:
-    resolution: {integrity: sha512-ICTSrx1sIerXhihjNeD0yHztmlM5A4A4+P9qcMITM5pkee1ecjkNWELes0/HQYhv04XYGfVAy6KS4BHtotybbA==}
+  /wds@0.19.0:
+    resolution: {integrity: sha512-3DP7yk5cXYmHadgz7CVdUBpOwpDvRWnPAcOSfrN4e4PhtBl19oziRi5qfVpjqmqGSiY1sz7gKGbFNSPHPl7MjA==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     dependencies:
