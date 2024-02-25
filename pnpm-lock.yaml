@@ -51,7 +51,7 @@ devDependencies:
     version: 12.0.0(eslint@8.57.0)
   fastify-auth-prisma:
     specifier: ^1.2.14
-    version: 1.2.14
+    version: 1.2.27
   husky:
     specifier: 9.0.11
     version: 9.0.11
@@ -3857,7 +3857,7 @@ packages:
       supports-color:
         optional: true
     dependencies:
-      ms: 2.1.2
+      ms: 2.1.3
     dev: true
 
   /debug@4.3.4:
@@ -4966,13 +4966,13 @@ packages:
   /fast-uri@2.3.0:
     resolution: {integrity: sha512-eel5UKGn369gGEWOqBShmFJWfq/xSJvsgDzgLYC845GneayWvXBf0lJCBn5qTABfewy1ZDPoaR5OZCP+kssfuw==}
 
-  /fastify-auth-prisma@1.2.14:
-    resolution: {integrity: sha512-qEOHk2K+iFauipcahTpazYAtKmJenTGRhx8jM8ITMqElToRBM4SPMaYh0QeTOFffgAT/lo47p7xBDBsQcE7TWg==}
+  /fastify-auth-prisma@1.2.27:
+    resolution: {integrity: sha512-Etyn9q80uJHnMz6FuFUUHQL7TtuUwWjg6oHKAIONNtQndiF2Ri1ktjsgcu70HJrVxBpyQ4+Wp38M03WF9RPvYA==}
     engines: {node: '>=10'}
     dependencies:
       fastify: 4.26.1
       fastify-plugin: 4.5.1
-      jsonwebtoken: 9.0.1
+      jsonwebtoken: 9.0.2
       unify-errors: 1.2.202
     transitivePeerDependencies:
       - supports-color
@@ -7075,13 +7075,19 @@ packages:
       graceful-fs: 4.2.10
     dev: true
 
-  /jsonwebtoken@9.0.1:
-    resolution: {integrity: sha512-K8wx7eJ5TPvEjuiVSkv167EVboBDv9PZdDoF7BgeQnBLVvZWW9clr2PsQHVJDTKaEIH5JBIwHujGcHp7GgI2eg==}
+  /jsonwebtoken@9.0.2:
+    resolution: {integrity: sha512-PRp66vJ865SSqOlgqS8hujT5U4AOgMfhrwYIuIhfKaoSCZcirrmASQr8CX7cUg+RMih+hgznrjp99o+W4pJLHQ==}
     engines: {node: '>=12', npm: '>=6'}
     dependencies:
       jws: 3.2.2
-      lodash: 4.17.21
-      ms: 2.1.2
+      lodash.includes: 4.3.0
+      lodash.isboolean: 3.0.3
+      lodash.isinteger: 4.0.4
+      lodash.isnumber: 3.0.3
+      lodash.isplainobject: 4.0.6
+      lodash.isstring: 4.0.1
+      lodash.once: 4.1.1
+      ms: 2.1.3
       semver: 7.6.0
     dev: true
 
@@ -7212,12 +7218,40 @@ packages:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
 
+  /lodash.includes@4.3.0:
+    resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
+    dev: true
+
+  /lodash.isboolean@3.0.3:
+    resolution: {integrity: sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg==}
+    dev: true
+
+  /lodash.isinteger@4.0.4:
+    resolution: {integrity: sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==}
+    dev: true
+
+  /lodash.isnumber@3.0.3:
+    resolution: {integrity: sha512-QYqzpfwO3/CWf3XP+Z+tkQsfaLL/EnUlXWVkIk5FUPc4sBdTehEqZONuyRt2P67PXAk+NXmTBcc97zw9t1FQrw==}
+    dev: true
+
+  /lodash.isplainobject@4.0.6:
+    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
+    dev: true
+
+  /lodash.isstring@4.0.1:
+    resolution: {integrity: sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==}
+    dev: true
+
   /lodash.memoize@4.1.2:
     resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
     dev: true
 
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: true
+
+  /lodash.once@4.1.1:
+    resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
     dev: true
 
   /lodash.sortby@4.7.0:
@@ -7407,6 +7441,10 @@ packages:
 
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+
+  /ms@2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+    dev: true
 
   /mute-stream@0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==}
