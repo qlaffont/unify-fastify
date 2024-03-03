@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.4.55 (2024-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fastify to v4.26.2 ([46064a1](https://github.com/qlaffont/unify-fastify/commit/46064a14ac9120fa60f7c015d709253c1524b5af))
+
 ### 1.4.54 (2024-03-01)
 
 ### 1.4.53 (2024-03-01)
