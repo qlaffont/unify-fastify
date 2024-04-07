@@ -13,7 +13,7 @@ dependencies:
     version: 4.5.1
   unify-errors:
     specifier: ^1.2.202
-    version: 1.2.231
+    version: 1.2.232
 
 devDependencies:
   '@jest/globals':
@@ -4988,7 +4988,7 @@ packages:
       fastify: 4.26.2
       fastify-plugin: 4.5.1
       jsonwebtoken: 9.0.2
-      unify-errors: 1.2.231
+      unify-errors: 1.2.232
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9580,8 +9580,8 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /unify-errors@1.2.231:
-    resolution: {integrity: sha512-CTHqgmP+hoir5Hrv4usJSx8tAIwmC+xWPAiY4kpo6f4bdE7fhiPc9Jk9h8Uf7jRfqblB+RqiGnWHg1kcthL5hQ==}
+  /unify-errors@1.2.232:
+    resolution: {integrity: sha512-b0QXjS1NhnEPKWPkEp26qa8r7Uvu+Oq1tlsMrmYakwfwwbzq7e03as/pKsGrv4rAqje94PvUcdswm8adqYsZkQ==}
     engines: {node: '>=10'}
 
   /union-value@1.0.1:
