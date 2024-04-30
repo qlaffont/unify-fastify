@@ -53,7 +53,7 @@ importers:
         version: 12.1.0(eslint@8.57.0)
       fastify-auth-prisma:
         specifier: ^1.2.14
-        version: 1.2.241
+        version: 1.2.242
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -2442,8 +2442,8 @@ packages:
   fast-uri@2.3.0:
     resolution: {integrity: sha512-eel5UKGn369gGEWOqBShmFJWfq/xSJvsgDzgLYC845GneayWvXBf0lJCBn5qTABfewy1ZDPoaR5OZCP+kssfuw==}
 
-  fastify-auth-prisma@1.2.241:
-    resolution: {integrity: sha512-X0jTyDC2yDT25yB7EBlUaBOd7LXZeOzhQb+AQfvPWkTt1OlUKwVvXuKcZEgSEJnjlhWaUbDeq4xFaqAvM6MNWA==}
+  fastify-auth-prisma@1.2.242:
+    resolution: {integrity: sha512-nizSzgcoRWCZhQYDmvpKu5remLbWm4RlA19aS05lJrNcRBsyCi/AkTGKVruth45FR5uC5AUEd1T+/BjPdJu+IA==}
     engines: {node: '>=10'}
 
   fastify-plugin@4.5.1:
@@ -8016,7 +8016,7 @@ snapshots:
 
   fast-uri@2.3.0: {}
 
-  fastify-auth-prisma@1.2.241:
+  fastify-auth-prisma@1.2.242:
     dependencies:
       fastify: 4.26.2
       fastify-plugin: 4.5.1
