@@ -9,6 +9,7 @@ import {
   NotFound,
   NotImplemented,
   TimeOut,
+  TooManyRequests,
   Unauthorized,
 } from 'unify-errors';
 
@@ -64,6 +65,10 @@ const makeServer = async (options?: Options) => {
     throw new DefaultError({ example: 'A CustomError but not handled' });
   });
 
+  server.get('/too-many-requests', async () => {
+    throw new TooManyRequests({ });
+  });
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   await server.register(fastifyAuthPrismaPlugin, {
@@ -77,6 +82,7 @@ const makeServer = async (options?: Options) => {
       { url: '/not-implemented', method: '*' },
       { url: '/not-custom', method: '*' },
       { url: '/default-case', method: '*' },
+      { url: '/too-many-requests', method: '*' },
     ],
     prisma: () => {},
     secret: 'wrongsecret',

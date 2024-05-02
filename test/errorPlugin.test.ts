@@ -109,6 +109,17 @@ describe('errors rejection', () => {
     );
   });
 
+  it('too-many-requests', async () => {
+    await testRoute(
+      server,
+      '/too-many-requests',
+      {
+        error: 'Too Many Requests',
+      },
+      429
+    );
+  });
+
   it('internal', async () => {
     await testRoute(
       server,

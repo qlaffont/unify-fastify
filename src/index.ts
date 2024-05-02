@@ -12,6 +12,7 @@ import {
   NotFound,
   NotImplemented,
   TimeOut,
+  TooManyRequests,
   Unauthorized,
 } from 'unify-errors';
 
@@ -59,6 +60,10 @@ const errorPlugin: FastifyPluginAsync<Options> = fp(
           }
           case TimeOut.name: {
             httpCode = 408;
+            break;
+          }
+          case TooManyRequests.name: {
+            httpCode = 429;
             break;
           }
           case InternalServerError.name: {
