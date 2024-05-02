@@ -66,7 +66,7 @@ const makeServer = async (options?: Options) => {
   });
 
   server.get('/too-many-requests', async () => {
-    throw new TooManyRequests({ });
+    throw new TooManyRequests({});
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
