@@ -16,7 +16,7 @@
     "build": "tsdx build",
     "test": "jest",
     "lint": "eslint src test",
-    "prepare": "tsdx build",
+    "prepare": "tsdx build"
   },
   "husky": {
     "hooks": {
