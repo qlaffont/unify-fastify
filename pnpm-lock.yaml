@@ -16,7 +16,7 @@ importers:
         version: 5.0.1
       unify-errors:
         specifier: ^1.3.0
-        version: 1.3.46
+        version: 1.3.47
     devDependencies:
       '@jest/globals':
         specifier: 29.7.0
@@ -2207,11 +2207,13 @@ packages:
   eslint@6.8.0:
     resolution: {integrity: sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==}
     engines: {node: ^8.10.0 || ^10.13.0 || >=11.10.1}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@6.2.1:
@@ -4648,8 +4650,8 @@ packages:
     resolution: {integrity: sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==}
     engines: {node: '>=4'}
 
-  unify-errors@1.3.46:
-    resolution: {integrity: sha512-JPpoJkuBFnm0O06BubRGhNfJ2KXwJV/v+dUWmX6g0z5AT/zWMQmsEZbz18k6VPH2yb1bhBBcwln8Fb9Oe3BIBg==}
+  unify-errors@1.3.47:
+    resolution: {integrity: sha512-dxS55VxdjzWgCWBmuJ+0R8kOPCbh5uVSBQfnl9FwFYakk1JoAGqfiV+zkXhr/DAwMCr5WIUleohCdgKK1rmVIw==}
     engines: {node: '>=10'}
 
   union-value@1.0.1:
@@ -7852,7 +7854,7 @@ snapshots:
       fastify: 4.28.1
       fastify-plugin: 4.5.1
       jsonwebtoken: 9.0.2
-      unify-errors: 1.3.46
+      unify-errors: 1.3.47
 
   fastify-plugin@4.5.1: {}
 
@@ -10742,7 +10744,7 @@ snapshots:
 
   unicode-property-aliases-ecmascript@2.0.0: {}
 
-  unify-errors@1.3.46: {}
+  unify-errors@1.3.47: {}
 
   union-value@1.0.1:
     dependencies:
