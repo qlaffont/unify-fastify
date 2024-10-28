@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.5.261 (2024-10-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency unify-errors to v1.3.50 ([b3fb42e](https://github.com/qlaffont/unify-fastify/commit/b3fb42e9bf51d62f75e5caaee753ad3e042c5a9f))
+
 ### 1.5.260 (2024-10-28)
 
 ### 1.5.259 (2024-10-23)
