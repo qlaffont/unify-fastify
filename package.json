@@ -71,7 +71,7 @@
     "tsdx": "0.14.1",
     "tslib": "2.6.3",
     "typescript": "5.5.3",
-    "wds": "0.21.3",
+    "wds": "0.22.0",
     "fastify-auth-prisma": "^1.2.14"
   },
   "packageManager": "pnpm@10.4.1"
