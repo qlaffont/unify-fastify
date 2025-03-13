@@ -74,5 +74,5 @@
     "wds": "0.22.0",
     "fastify-auth-prisma": "^1.2.14"
   },
-  "packageManager": "pnpm@10.6.2"
+  "packageManager": "pnpm@10.6.3"
 }
