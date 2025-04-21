@@ -16,7 +16,7 @@ importers:
         version: 5.0.1
       unify-errors:
         specifier: ^1.3.0
-        version: 1.3.80
+        version: 1.3.81
     devDependencies:
       '@jest/globals':
         specifier: 29.7.0
@@ -62,7 +62,7 @@ importers:
         version: 3.3.3
       ts-jest:
         specifier: ^29.1.2
-        version: 29.2.2(@babel/core@7.18.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.18.5))(jest@29.7.0(@types/node@20.14.10))(typescript@5.5.3)
+        version: 29.3.2(@babel/core@7.18.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.18.5))(jest@29.7.0(@types/node@20.14.10))(typescript@5.5.3)
       tsdx:
         specifier: 0.14.1
         version: 0.14.1(@types/babel__core@7.1.19)(@types/node@20.14.10)
@@ -4144,13 +4144,13 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  semver@7.6.2:
-    resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
+  semver@7.6.3:
+    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
 
-  semver@7.6.3:
-    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
+  semver@7.7.1:
+    resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -4513,8 +4513,8 @@ packages:
       jest: '>=25 <26'
       typescript: '>=3.4 <4.0'
 
-  ts-jest@29.2.2:
-    resolution: {integrity: sha512-sSW7OooaKT34AAngP6k1VS669a0HdLxkQZnlC7T76sckGCokXFnvJ3yRlQZGRTAoV5K19HfSgCiSwWOSIfcYlg==}
+  ts-jest@29.3.2:
+    resolution: {integrity: sha512-bJJkrWc6PjFVz5g2DGCNUo8z7oFEYaz1xP1NpeDU7KNLMWPpEyV8Chbpkn8xjzgRDpQhnGMyvyldoL7h8JXyug==}
     engines: {node: ^14.15.0 || ^16.10.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -4597,6 +4597,10 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
 
+  type-fest@4.40.0:
+    resolution: {integrity: sha512-ABHZ2/tS2JkvH1PEjxFDTUWC8dB5OsIGZP4IFLhR293GqT5Y5qB1WwL2kMPYhQW9DVgVD8Hd7I8gjwPIf5GFkw==}
+    engines: {node: '>=16'}
+
   typed-array-buffer@1.0.0:
     resolution: {integrity: sha512-Y8KTSIglk9OZEr8zywiIHG/kmQ7KWyjseXs1CbSo8vC42w7hg2HgYTxSWwP0+is7bWDc1H+Fo026CpHFwm8tkw==}
     engines: {node: '>= 0.4'}
@@ -4647,8 +4651,8 @@ packages:
     resolution: {integrity: sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==}
     engines: {node: '>=4'}
 
-  unify-errors@1.3.80:
-    resolution: {integrity: sha512-UQLtupJdMGplICVs5Av/h1FDDay2Js/hyGf0hppMTDbqKrYHhBsblVcIDu98hNlwnHvvV5GrBgtbFwr066jhIg==}
+  unify-errors@1.3.81:
+    resolution: {integrity: sha512-WcBNTAd9RcwLxGNAn/z1kjDccLntLz0dicyv+8nGJBIQTfQtOWYhT+5i9XDEcrRSKHcTZ7NfzV0jaXKf9U3cDQ==}
     engines: {node: '>=10'}
 
   union-value@1.0.1:
@@ -6430,7 +6434,7 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.4
-      semver: 7.6.3
+      semver: 7.7.1
       ts-api-utils: 1.3.0(typescript@5.5.3)
     optionalDependencies:
       typescript: 5.5.3
@@ -7843,7 +7847,7 @@ snapshots:
       fastify: 4.29.0
       fastify-plugin: 4.5.1
       jsonwebtoken: 9.0.2
-      unify-errors: 1.3.80
+      unify-errors: 1.3.81
 
   fastify-plugin@4.5.1: {}
 
@@ -8464,7 +8468,7 @@ snapshots:
       '@babel/parser': 7.18.5
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
-      semver: 7.6.3
+      semver: 7.7.1
     transitivePeerDependencies:
       - supports-color
 
@@ -9026,7 +9030,7 @@ snapshots:
       jest-util: 29.7.0
       natural-compare: 1.4.0
       pretty-format: 29.7.0
-      semver: 7.6.3
+      semver: 7.7.1
     transitivePeerDependencies:
       - supports-color
 
@@ -9229,7 +9233,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.6.3
+      semver: 7.7.1
 
   jsprim@1.4.2:
     dependencies:
@@ -10122,9 +10126,9 @@ snapshots:
     dependencies:
       lru-cache: 6.0.0
 
-  semver@7.6.2: {}
-
   semver@7.6.3: {}
+
+  semver@7.7.1: {}
 
   serialize-javascript@4.0.0:
     dependencies:
@@ -10542,7 +10546,7 @@ snapshots:
       typescript: 3.9.10
       yargs-parser: 18.1.3
 
-  ts-jest@29.2.2(@babel/core@7.18.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.18.5))(jest@29.7.0(@types/node@20.14.10))(typescript@5.5.3):
+  ts-jest@29.3.2(@babel/core@7.18.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.18.5))(jest@29.7.0(@types/node@20.14.10))(typescript@5.5.3):
     dependencies:
       bs-logger: 0.2.6
       ejs: 3.1.10
@@ -10552,7 +10556,8 @@ snapshots:
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6
-      semver: 7.6.2
+      semver: 7.7.1
+      type-fest: 4.40.0
       typescript: 5.5.3
       yargs-parser: 21.1.1
     optionalDependencies:
@@ -10673,6 +10678,8 @@ snapshots:
 
   type-fest@0.8.1: {}
 
+  type-fest@4.40.0: {}
+
   typed-array-buffer@1.0.0:
     dependencies:
       call-bind: 1.0.2
@@ -10728,7 +10735,7 @@ snapshots:
 
   unicode-property-aliases-ecmascript@2.0.0: {}
 
-  unify-errors@1.3.80: {}
+  unify-errors@1.3.81: {}
 
   union-value@1.0.1:
     dependencies:
