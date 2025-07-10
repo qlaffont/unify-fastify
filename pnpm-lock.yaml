@@ -16,7 +16,7 @@ importers:
         version: 5.0.1
       unify-errors:
         specifier: ^1.3.0
-        version: 1.3.89
+        version: 1.3.90
     devDependencies:
       '@jest/globals':
         specifier: 29.7.0
@@ -4734,8 +4734,8 @@ packages:
     resolution: {integrity: sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==}
     engines: {node: '>=4'}
 
-  unify-errors@1.3.89:
-    resolution: {integrity: sha512-IX4v6MWaoySiojt13tuuz46ID+Z/QGx0q2DzWqIJtQDRdkOyPF9DjiqCRmGsdQ5gWDryHwP4BrTsi/YTU71iSA==}
+  unify-errors@1.3.90:
+    resolution: {integrity: sha512-LN8uGGod++pRQQL1QIyDPRUquY6ed7pEOyJj4W7SjwtLiXDjqLeoh4YeIsMNQ65TVcWbBTiEk8GpylEs4KvCSg==}
     engines: {node: '>=10'}
 
   union-value@1.0.1:
@@ -7988,7 +7988,7 @@ snapshots:
       fastify: 4.29.1
       fastify-plugin: 4.5.1
       jsonwebtoken: 9.0.2
-      unify-errors: 1.3.89
+      unify-errors: 1.3.90
 
   fastify-plugin@4.5.1: {}
 
@@ -10927,7 +10927,7 @@ snapshots:
 
   unicode-property-aliases-ecmascript@2.0.0: {}
 
-  unify-errors@1.3.89: {}
+  unify-errors@1.3.90: {}
 
   union-value@1.0.1:
     dependencies:
